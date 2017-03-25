@@ -7,18 +7,35 @@ import {AppComponent} from './app.component';
 import {VideoListComponent} from './video-list/video-list.component';
 import {PlayerComponent} from './player/player.component';
 import {HomeComponent} from './home/home.component';
+import {RouterModule} from "@angular/router";
+import { VideosComponent } from './videos/videos.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         VideoListComponent,
         PlayerComponent,
-        HomeComponent
+        HomeComponent,
+        VideosComponent
     ],
     imports: [
         BrowserModule,
         FormsModule,
-        HttpModule
+        HttpModule,
+        RouterModule.forRoot([
+            {
+                path: '',
+                component: HomeComponent
+            },
+            {
+                path: 'home',
+                component: HomeComponent
+            },
+            {
+                path: 'videos',
+                component: VideosComponent
+            }
+        ])
     ],
     providers: [],
     bootstrap: [AppComponent]
