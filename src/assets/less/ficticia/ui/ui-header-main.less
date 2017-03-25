@@ -1,0 +1,49 @@
+.header-main
+{
+    background-color: @color-main;
+    height: @header-height;
+
+    .header-content
+    {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    .header-logo img
+    {
+        display: block;
+    }
+
+    .header-actions
+    {
+        .action-menu
+        {
+            cursor: pointer;
+            
+            .line,
+            .line:before,
+            .line:after
+            {
+                content: "";
+                display: block;
+                width: 20px;
+                height: 3px;
+                background-color: white;
+                position: relative;
+                border-radius: 5px;
+            }
+
+            .line:after
+            {
+                top: 4px;
+            }
+
+            .line:before
+            {
+                top: -7px;
+            }
+        }
+    }
+}

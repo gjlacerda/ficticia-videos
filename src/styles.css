@@ -1,7 +1,8 @@
-body {
-  background: red;
+.container {
+  padding: 0 10px;
+}
+.header-main {
+  background-color: #a8395c;
+  height: 54px;
 }
 
-html {
-  color: yellow;
-}
