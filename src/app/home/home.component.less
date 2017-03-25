@@ -1,0 +1,31 @@
+@import (reference) "../../assets/less/ficticia/base/base-variables";
+
+:host
+{
+    display: block;
+}
+
+.home-video-featured
+{
+    margin-bottom: 15px;
+}
+
+@media (min-width: @screen-md)
+{
+    .home-container
+    {
+        display: flex;
+    }
+
+    .home-video-featured
+    {
+        flex-basis: 60%;
+        margin-right: 30px;
+        margin-bottom: 0;
+    }
+
+    .home-video-list
+    {
+        flex-basis: 40%;
+    }
+}

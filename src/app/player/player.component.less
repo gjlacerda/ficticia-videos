@@ -1,4 +1,110 @@
+@import (reference) "../../assets/less/ficticia/base/base-variables";
+
 :host
 {
     display: block;
+}
+
+.player-description
+{
+    margin-top: 15px;
+
+    .title
+    {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 5px;
+
+        h3
+        {
+            margin-bottom: 0;
+        }
+    }
+
+    .info-md
+    {
+        display: none;
+
+        .views,
+        .date
+        {
+            display: inline-block;
+            height: 20px;
+        }
+
+        .views
+        {
+            width: 26px;
+            margin-right: 4px;
+            background: url('../../assets/images/views.png') no-repeat;
+        }
+
+        .date
+        {
+            width: 20px;
+            background: url('../../assets/images/date.png') no-repeat;
+        }
+    }
+
+    .info-xs
+    {
+        text-align: right;
+        font-size: 12px;
+        color: @color-gray;
+        margin-top: 10px;
+
+        .views,
+        .date
+        {
+            display: inline-flex;
+            align-items: center;
+
+            i
+            {
+                height: 20px;
+                display: inline-block;
+
+                transform: scale(0.7);
+            }
+        }
+
+        .views
+        {
+            margin-right: 10px;
+
+            i
+            {
+                width: 26px;
+                background: url('../../assets/images/views.png') no-repeat;
+            }
+        }
+
+        .date i
+        {
+            width: 20px;
+            background: url('../../assets/images/date.png') no-repeat;
+        }
+    }
+}
+
+@media (min-width: @screen-md)
+{
+    .player-description
+    {
+        .title
+        {
+            margin-bottom: 8px;
+        }
+        
+        .info-xs
+        {
+            display: none;
+        }
+
+        .info-md
+        {
+            display: block;
+        }
+    }
 }

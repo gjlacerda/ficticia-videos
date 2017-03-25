@@ -1,0 +1,107 @@
+@import (reference) "../../assets/less/ficticia/base/base-variables";
+
+:host
+{
+    display: block;
+}
+
+.video
+{
+    display: flex;
+
+    &:not(:last-child)
+    {
+        margin-bottom: 15px;
+    }
+}
+
+.video-thumb
+{
+    flex-basis: 50%;
+    background-color: @color-gray-secondary;
+
+    img
+    {
+        display: block;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    a
+    {
+        display: block;
+    }
+}
+
+.video-info
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-basis: 50%;
+    margin-left: 10px;
+
+    a
+    {
+        display: block;
+    }
+
+    .title h3
+    {
+        margin-bottom: 0;
+    }
+
+    .views
+    {
+        display: flex;
+        align-items: center;
+        color: #aaa;
+        font-size: 13px;
+
+        i
+        {
+            width: 26px;
+            height: 20px;
+            display: inline-block;
+            background: url('../../assets/images/views-gray.png') no-repeat;
+            transform: scale(0.7);
+        }
+    }
+}
+
+.video-action
+{
+    margin-top: 15px;
+    border: 1px solid #bbb;
+    width: 100%;
+    background-color: white;
+    border-radius: 4px;
+    font-size: 9px;
+    text-transform: uppercase;
+    padding: 0;
+    line-height: 30px;
+    cursor: pointer;
+    color: @color-gray-secondary;
+
+    &:hover
+    {
+        background-color: @color-gray-secondary;
+        border-color: @color-gray-secondary;
+        color: white;
+    }
+
+    &:active
+    {
+        background-color: @color-gray-tertiary;
+        border-color: @color-gray-tertiary;
+    }
+}
+
+@media (min-width: @screen-md)
+{
+    .video-info .views i
+    {
+        margin-right: 5px;
+        transform: scale(1);
+    }
+}
