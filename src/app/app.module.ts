@@ -4,11 +4,12 @@ import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 
 import {AppComponent} from './app.component';
-import {VideoListComponent} from './video-list/video-list.component';
-import {PlayerComponent} from './player/player.component';
-import {HomeComponent} from './home/home.component';
+import {VideoListComponent} from './components/video-list/video-list.component';
+import {PlayerComponent} from './components/player/player.component';
+import {HomeComponent} from './components/home/home.component';
 import {RouterModule} from "@angular/router";
-import { VideosComponent } from './videos/videos.component';
+import { VideosComponent } from './components/videos/videos.component';
+import {YoutubeService} from "./services/youtube/youtube.service";
 
 @NgModule({
     declarations: [
@@ -37,7 +38,10 @@ import { VideosComponent } from './videos/videos.component';
             }
         ])
     ],
-    providers: [],
+    providers: [{
+        provide: 'youtube',
+        useClass: YoutubeService
+    }],
     bootstrap: [AppComponent]
 })
 export class AppModule {
