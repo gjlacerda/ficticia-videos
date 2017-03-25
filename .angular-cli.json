@@ -18,6 +18,9 @@
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
+      "styles": [
+        "assets/less/ficticia/ficticia.less"
+      ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
