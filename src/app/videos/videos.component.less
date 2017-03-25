@@ -1,0 +1,62 @@
+@import (reference) "../../assets/less/ficticia/base/base-variables";
+
+:host
+{
+    display: block;
+}
+
+.videos-list
+{
+    app-video-list /deep/ .box
+    {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+    }
+}
+
+@media (min-width: 750px)
+{
+    app-video-list /deep/ .video
+    {
+        flex-basis: 50%;
+    }
+}
+
+@media (min-width: @screen-md)
+{
+    app-video-list
+    {
+        & /deep/ .video
+        {
+            flex-basis: 33.3333%;
+        }
+
+        & /deep/ .video-thumb
+        {
+            flex-basis: 55%;
+        }
+
+        & /deep/ .video-info
+        {
+            flex-basis: 45%;
+        }
+
+        & /deep/ .video-content
+        {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        & /deep/ .video-list
+        {
+            margin-top: -10px;
+            margin-bottom: -10px;
+        }
+
+        & /deep/ .video-action
+        {
+            margin-top: 20px;
+        }
+    }
+}

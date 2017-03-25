@@ -5,14 +5,23 @@
     display: block;
 }
 
+.video-list
+{
+    display: flex;
+    flex-wrap: wrap;
+    margin: -8px;
+}
+
 .video
 {
     display: flex;
+    flex-basis: 100%;
+}
 
-    &:not(:last-child)
-    {
-        margin-bottom: 15px;
-    }
+.video-content
+{
+    display: flex;
+    margin: 8px;
 }
 
 .video-thumb
@@ -71,7 +80,7 @@
 
 .video-action
 {
-    margin-top: 15px;
+    margin-top: 16px;
     border: 1px solid #bbb;
     width: 100%;
     background-color: white;
