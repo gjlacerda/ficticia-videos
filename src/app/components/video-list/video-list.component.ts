@@ -1,4 +1,4 @@
-import {Component, OnChanges, Input} from '@angular/core';
+import {Component, OnChanges, Input, Inject} from '@angular/core';
 
 @Component({
     selector: 'app-video-list',
@@ -13,7 +13,7 @@ export class VideoListComponent implements OnChanges {
     private page = 0;
     private videosPaginated = [];
 
-    constructor() {
+    constructor(@Inject('youtube') private youtube,) {
     }
 
     ngOnChanges(changes) {
@@ -36,6 +36,11 @@ export class VideoListComponent implements OnChanges {
         this.videosPaginated.push(...newVideos);
 
         this.page++;
+    }
+
+    selectVideo(event, video) {
+        event.preventDefault();
+        this.youtube.starredVideo = video;
     }
 
 }

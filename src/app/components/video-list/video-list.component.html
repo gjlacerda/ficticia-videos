@@ -1,6 +1,6 @@
 <div class="box">
     <ul class="video-list">
-        <li class="video" *ngFor="let video of videosPaginated">
+        <li class="video" *ngFor="let video of videosPaginated" (click)="selectVideo($event, video)">
             <div class="video-content">
                 <div class="video-thumb">
                     <a href="">

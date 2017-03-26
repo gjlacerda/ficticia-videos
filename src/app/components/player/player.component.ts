@@ -27,13 +27,12 @@ export class PlayerComponent implements OnChanges {
     }
 
     ngOnChanges(changes) {
-        
+
         if (changes.video.firstChange) {
             return;
         }
 
         this.urlVideo = this.getEmbedUrl();
-
     }
 
 }
