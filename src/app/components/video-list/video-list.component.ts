@@ -17,6 +17,11 @@ export class VideoListComponent implements OnChanges {
     }
 
     ngOnChanges(changes) {
+
+        if (!changes.videos.currentValue.length) {
+            return;
+        }
+
         this.paginateVideos();
     }
 
@@ -25,8 +30,9 @@ export class VideoListComponent implements OnChanges {
      */
     paginateVideos() {
 
-        let initial = this.page * this.take,
-            newVideos = this.videos.splice(initial, this.take);
+        let initial = this.page * +this.take,
+            final = initial + +this.take,
+            newVideos = this.videos.slice(initial, final);
 
         this.videosPaginated.push(...newVideos);
 

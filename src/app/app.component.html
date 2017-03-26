@@ -1,5 +1,5 @@
 <!-- Header -->
-<header class="header-main">
+<header class="header-main" [ngClass]="cssSearch">
     <div class="header-content container">
 
         <!-- Logo -->
@@ -11,15 +11,25 @@
 
         <!-- Ações -->
         <div class="header-actions">
+
+            <!-- Pesquisar -->
+            <div class="action-search">
+                <span class="search-back" (click)="toggleSearch()"></span>
+                <input type="text" class="search-input">
+                <span class="search-icon" (click)="toggleSearch()"></span>
+            </div>
+
+            <!-- Menu -->
             <div class="action-menu" (click)="toggleDropdown()">
                 <span class="line"></span>
-                <nav class="dropdown dropdown-nav">
+                <nav class="dropdown dropdown-nav" [ngClass]="cssDropdown">
                     <ul>
                         <li><a routerLink="" class="star">Destaques</a></li>
                         <li><a routerLink="/videos" class="video">Vídeos</a></li>
                     </ul>
                 </nav>
             </div>
+
         </div>
 
     </div>
