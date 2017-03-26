@@ -17,11 +17,6 @@ export class VideoListComponent implements OnChanges {
     }
 
     ngOnChanges(changes) {
-
-        if (changes.videos.firstChange) {
-            return;
-        }
-
         this.paginateVideos();
     }
 

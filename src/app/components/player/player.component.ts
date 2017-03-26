@@ -28,7 +28,7 @@ export class PlayerComponent implements OnChanges {
 
     ngOnChanges(changes) {
 
-        if (changes.video.firstChange) {
+        if (!changes.video.currentValue.id) {
             return;
         }
 
