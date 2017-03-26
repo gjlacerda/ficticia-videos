@@ -32,15 +32,27 @@ export class YoutubeService {
      */
     get() {
 
-        this.getYoutubeChannelData().then(channelData => {
+        return new Promise(resolve => {
 
-            if (!channelData.length) {
+            // Se já tiver feito realizado a busca, retorna sem pesquisar
+            if (this.videos.length) {
+                resolve();
                 return;
             }
 
-            this.getYoutubeVideoData(channelData).then(channelVideo => {
-                this.videos       = this.processData(channelData, channelVideo);
-                this.starredVideo = this.getStarredVideo();
+            this.getYoutubeChannelData().then(channelData => {
+
+                if (!channelData.length) {
+                    return;
+                }
+
+                this.getYoutubeVideoData(channelData).then(channelVideo => {
+
+                    this.videos       = this.processData(channelData, channelVideo);
+                    this.starredVideo = this.getStarredVideo();
+
+                    resolve();
+                });
             });
         });
     }

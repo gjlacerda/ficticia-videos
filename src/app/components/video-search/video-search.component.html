@@ -1,9 +1,14 @@
 <div class="videos-search container">
 
-  <!-- Listagem de vídeos filtrada -->
-  <section class="videos-list">
-    <h2>Resultado para: ""</h2>
-    <app-video-list [videos]="videos" *ngIf="videos" data-take="12"></app-video-list>
-  </section>
+    <span (click)="teste()">teste</span>
+
+    <!-- Listagem de vídeos filtrada -->
+    <section class="videos-list">
+        <h2>Resultado para: {{ term }}</h2>
+        <app-video-list [(videos)]="videos" *ngIf="videos" data-take="12"></app-video-list>
+    </section>
+
+    <!-- Modal com o player -->
+    <app-video-modal data-toggle="thumb"></app-video-modal>
 
 </div>

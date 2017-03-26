@@ -12,7 +12,6 @@ export class AppComponent {
     private searchActive   = false;
 
     constructor(@Inject('youtube') private youtube, private router: Router) {
-        this.youtube.get();
     }
 
     /**

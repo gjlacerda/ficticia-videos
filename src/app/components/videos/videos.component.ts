@@ -8,7 +8,7 @@ import {Component, OnInit, Inject} from '@angular/core';
 export class VideosComponent implements OnInit {
 
     constructor(@Inject('youtube') private youtube) {
-
+        this.youtube.get();
     }
 
     ngOnInit() {
