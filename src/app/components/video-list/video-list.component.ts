@@ -1,16 +1,38 @@
-import {Component, OnInit, Inject} from '@angular/core';
+import {Component, OnChanges, Input} from '@angular/core';
 
 @Component({
     selector: 'app-video-list',
     templateUrl: './video-list.component.html',
     styleUrls: ['./video-list.component.less']
 })
-export class VideoListComponent implements OnInit {
+export class VideoListComponent implements OnChanges {
 
-    constructor(@Inject('youtube') private youtube) {
+    @Input() videos;
+
+    private readonly take = 4;
+    private page = 0;
+    private videosPaginated = [];
+
+    constructor() {
     }
 
-    ngOnInit() {
+    ngOnChanges(changes) {
+
+        if (!changes.videos.currentValue.length) {
+            return;
+        }
+
+        this.paginateVideos();
+    }
+
+    paginateVideos() {
+
+        let initial = this.page * this.take;
+
+        this.videosPaginated = this.videos.splice(initial, this.take);
+
+        this.page++;
+
     }
 
 }

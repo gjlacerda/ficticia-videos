@@ -6,6 +6,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class YoutubeService {
 
+    private readonly maxResults = 40;
     private readonly key = 'AIzaSyDjnyFJaetyEUUGb-66vndx12oj3mw_60s';
     private readonly channelId = 'UCsn6cjffsvyOZCZxvGoJxGg';
     private readonly youtubeApiSearch = 'https://www.googleapis.com/youtube/v3/search';
@@ -39,6 +40,7 @@ export class YoutubeService {
 
             this.getYoutubeVideoData(channelData).then(channelVideo => {
                 this.videos       = this.processData(channelData, channelVideo);
+                console.log(this.videos);
                 this.starredVideo = this.getStarredVideo();
             });
         });
@@ -55,6 +57,15 @@ export class YoutubeService {
     }
 
     /**
+     * Retorna a url do video do youtube para embed
+     * @param videoId
+     * @returns {string}
+     */
+    getEmbedUrl(videoId) {
+        return `https://www.youtube.com/embed/${videoId}`;
+    }
+
+    /**
      * Faz uma busca na API para buscar todos os vídeos do canal
      * @returns {any}
      */
@@ -66,7 +77,7 @@ export class YoutubeService {
             part: 'snippet,id',
             order: 'date',
             type: 'video',
-            maxResults: 20
+            maxResults: this.maxResults
         };
 
         let urlApi = this.mountUrl(this.youtubeApiSearch, params);
@@ -88,7 +99,7 @@ export class YoutubeService {
             key: this.key,
             id: this.getListVideoIds(listVideos),
             part: 'contentDetails,statistics',
-            maxResults: 20
+            maxResults: this.maxResults
         };
 
         let urlApi = this.mountUrl(this.youtubeApiVideo, params);

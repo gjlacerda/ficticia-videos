@@ -1,6 +1,6 @@
 <div class="box">
     <ul class="video-list">
-        <li class="video" *ngFor="let video of youtube.videos">
+        <li class="video" *ngFor="let video of videosPaginated">
             <div class="video-content">
                 <div class="video-thumb">
                     <a href="">
@@ -20,7 +20,7 @@
         </li>
     </ul>
 
-    <button type="button" class="video-action">
+    <button type="button" class="video-action" (click)="paginateVideos()">
         Carregar mais vídeos...
     </button>
 </div>

@@ -3,13 +3,13 @@
     <!-- Vídeos em destaque -->
     <section class="home-video-featured">
         <h2>Vídeo em destaque</h2>
-        <app-player></app-player>
+        <app-player [video]="youtube.starredVideo"></app-player>
     </section>
 
     <!-- Mais vídeos -->
     <section class="home-video-list">
         <h2>+ Vídeos</h2>
-        <app-video-list></app-video-list>
+        <app-video-list [videos]="youtube.videos"></app-video-list>
     </section>
 
 </div>

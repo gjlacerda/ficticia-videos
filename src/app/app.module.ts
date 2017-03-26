@@ -8,8 +8,9 @@ import {VideoListComponent} from './components/video-list/video-list.component';
 import {PlayerComponent} from './components/player/player.component';
 import {HomeComponent} from './components/home/home.component';
 import {RouterModule} from "@angular/router";
-import { VideosComponent } from './components/videos/videos.component';
+import {VideosComponent } from './components/videos/videos.component';
 import {YoutubeService} from "./services/youtube/youtube.service";
+import {FicticiaService} from "./services/ficticia/ficticia.service";
 
 @NgModule({
     declarations: [
@@ -38,10 +39,16 @@ import {YoutubeService} from "./services/youtube/youtube.service";
             }
         ])
     ],
-    providers: [{
-        provide: 'youtube',
-        useClass: YoutubeService
-    }],
+    providers: [
+        {
+            provide: 'youtube',
+            useClass: YoutubeService
+        },
+        {
+            provide: 'ficticia',
+            useClass: FicticiaService
+        },
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {

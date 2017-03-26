@@ -1,27 +1,27 @@
 <!-- Player de vídeo -->
 <div class="player-container">
     <div class="player">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/BQIENssBrzI" frameborder="0" allowfullscreen></iframe>
+        <iframe width="1920" height="1080" frameborder="0" allowfullscreen [src]="getEmbedUrl()" *ngIf="video"></iframe>
     </div>
 </div>
 
 <!-- Descrição do vídeo -->
 <div class="player-description box">
     <div class="title">
-        <h3>Aqui vai o título do vídeo</h3>
+        <h3>{{ video.snippet?.title }}</h3>
         <div class="info-md">
             <span class="views"></span>
             <span class="date"></span>
         </div>
     </div>
-    <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in dolor ut nibh imperdiet aliquet ut vitae justo. Vivamus ac risus laoreet.</p>
+    <p class="description">{{ video.snippet?.description }}</p>
     <div class="info-xs">
         <span class="views">
-            <i></i> 500
+            <i></i> {{ ficticia.formatNumber(video.statistics?.viewCount) }}
         </span>
         <span class="date">
             <i></i>
-            15/05/2010
+            {{ ficticia.formatDateBr(video.snippet?.publishedAt) }}
         </span>
     </div>
 </div>
