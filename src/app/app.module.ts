@@ -11,6 +11,7 @@ import {RouterModule} from "@angular/router";
 import {VideosComponent } from './components/videos/videos.component';
 import {YoutubeService} from "./services/youtube/youtube.service";
 import {FicticiaService} from "./services/ficticia/ficticia.service";
+import { VideoModalComponent } from './components/video-modal/video-modal.component';
 
 @NgModule({
     declarations: [
@@ -18,7 +19,8 @@ import {FicticiaService} from "./services/ficticia/ficticia.service";
         VideoListComponent,
         PlayerComponent,
         HomeComponent,
-        VideosComponent
+        VideosComponent,
+        VideoModalComponent
     ],
     imports: [
         BrowserModule,

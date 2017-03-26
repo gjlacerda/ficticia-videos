@@ -8,8 +8,8 @@ import {Component, OnChanges, Input, Inject} from '@angular/core';
 export class VideoListComponent implements OnChanges {
 
     @Input() videos;
+    @Input() take;
 
-    private readonly take = 4;
     private page = 0;
     private videosPaginated = [];
 
@@ -26,7 +26,7 @@ export class VideoListComponent implements OnChanges {
     }
 
     /**
-     * Lista novos vídeos de 4 em 4
+     * Lista novos vídeos de acordo com a propriedade take
      */
     paginateVideos() {
 

@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Inject} from '@angular/core';
 
 @Component({
-  selector: 'app-videos',
-  templateUrl: './videos.component.html',
-  styleUrls: ['./videos.component.less']
+    selector: 'app-videos',
+    templateUrl: './videos.component.html',
+    styleUrls: ['./videos.component.less']
 })
 export class VideosComponent implements OnInit {
 
-  constructor() { }
+    constructor(@Inject('youtube') private youtube) {
 
-  ngOnInit() {
-  }
+    }
+
+    ngOnInit() {
+    }
 
 }

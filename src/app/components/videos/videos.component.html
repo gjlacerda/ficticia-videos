@@ -3,7 +3,10 @@
     <!-- Todos vídeos -->
     <section class="videos-list">
         <h2>Todos os vídeos do Canal</h2>
-        <app-video-list></app-video-list>
+        <app-video-list [videos]="youtube.videos" data-take="12"></app-video-list>
     </section>
+
+    <!-- Modal com o player -->
+    <app-video-modal data-toggle="thumb"></app-video-modal>
 
 </div>
