@@ -1,109 +1,19 @@
 <div class="box">
     <ul class="video-list">
-        <li class="video">
+        <li class="video" *ngFor="let video of youtube.videos">
             <div class="video-content">
                 <div class="video-thumb">
                     <a href="">
-                        <img src="http://placehold.it/350x200" alt="">
+                        <img [src]="video.snippet.thumbnails.high.url">
                     </a>
                 </div>
                 <div class="video-info">
                     <a href="" class="title">
-                        <h3>Título do vídeo</h3>
+                        <h3>{{ video.snippet.title }}</h3>
                     </a>
                     <span class="views">
                     <i></i>
-                    500 views
-                </span>
-                </div>
-            </div>
-        </li>
-        <li class="video">
-            <div class="video-content">
-                <div class="video-thumb">
-                    <a href="">
-                        <img src="http://placehold.it/350x200" alt="">
-                    </a>
-                </div>
-                <div class="video-info">
-                    <a href="" class="title">
-                        <h3>Título do vídeo</h3>
-                    </a>
-                    <span class="views">
-                    <i></i>
-                    500 views
-                </span>
-                </div>
-            </div>
-        </li>
-        <li class="video">
-            <div class="video-content">
-                <div class="video-thumb">
-                    <a href="">
-                        <img src="http://placehold.it/350x200" alt="">
-                    </a>
-                </div>
-                <div class="video-info">
-                    <a href="" class="title">
-                        <h3>Título do vídeo</h3>
-                    </a>
-                    <span class="views">
-                    <i></i>
-                    500 views
-                </span>
-                </div>
-            </div>
-        </li>
-        <li class="video">
-            <div class="video-content">
-                <div class="video-thumb">
-                    <a href="">
-                        <img src="http://placehold.it/350x200" alt="">
-                    </a>
-                </div>
-                <div class="video-info">
-                    <a href="" class="title">
-                        <h3>Título do vídeo</h3>
-                    </a>
-                    <span class="views">
-                    <i></i>
-                    500 views
-                </span>
-                </div>
-            </div>
-        </li>
-        <li class="video">
-            <div class="video-content">
-                <div class="video-thumb">
-                    <a href="">
-                        <img src="http://placehold.it/350x200" alt="">
-                    </a>
-                </div>
-                <div class="video-info">
-                    <a href="" class="title">
-                        <h3>Título do vídeo</h3>
-                    </a>
-                    <span class="views">
-                    <i></i>
-                    500 views
-                </span>
-                </div>
-            </div>
-        </li>
-        <li class="video">
-            <div class="video-content">
-                <div class="video-thumb">
-                    <a href="">
-                        <img src="http://placehold.it/350x200" alt="">
-                    </a>
-                </div>
-                <div class="video-info">
-                    <a href="" class="title">
-                        <h3>Título do vídeo</h3>
-                    </a>
-                    <span class="views">
-                    <i></i>
-                    500 views
+                    {{ video.statistics.viewCount }} views
                 </span>
                 </div>
             </div>

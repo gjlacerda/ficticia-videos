@@ -6,24 +6,8 @@ import {Component, Inject} from '@angular/core';
 })
 export class AppComponent {
 
-    /**
-     * Lista de vídeos
-     */
-    videos = {};
-
     constructor(@Inject('youtube') private youtube) {
-        this.getVideos();
+        this.youtube.get();
     }
-
-    /**
-     * Carrega os vídeos do youtube
-     */
-    getVideos() {
-
-        this.youtube.get().then(response => {
-            this.videos = response;
-        });
-    }
-
 
 }

@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Http, Response} from "@angular/http";
+import {Http} from "@angular/http";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
@@ -11,31 +11,46 @@ export class YoutubeService {
     private readonly youtubeApiSearch = 'https://www.googleapis.com/youtube/v3/search';
     private readonly youtubeApiVideo = 'https://www.googleapis.com/youtube/v3/videos';
 
+    /**
+     * Lista de vídeos do canal
+     * @type {Array}
+     */
+    videos = [];
+
+    /**
+     * Video em destaque
+     * @type {{}}
+     */
+    starredVideo = {};
+
     constructor(private http: Http) {
     }
 
     /**
      * Busca os dados/vídeos do canal
-     * @returns {Promise<T>}
      */
-    get(): Promise<any> {
+    get() {
 
-        return new Promise((resolve, reject) => {
+        this.getYoutubeChannelData().then(channelData => {
 
-            this.getYoutubeChannelData().then(channelData => {
+            if (!channelData.length) {
+                return;
+            }
 
-                if (!channelData.length) {
-                    reject();
-                }
-
-                this.getYoutubeVideoData(channelData).then(channelVideo => {
-
-                    let processedData = this.processData(channelData, channelVideo);
-
-                    resolve(processedData);
-                });
+            this.getYoutubeVideoData(channelData).then(channelVideo => {
+                this.videos       = this.processData(channelData, channelVideo);
+                this.starredVideo = this.getStarredVideo();
             });
+        });
+    }
 
+    /**
+     * Retorna o vídeo em destaque (com maior número de likes)
+     * @returns {any}
+     */
+    getStarredVideo() {
+        return this.videos.reduce((a, b) => {
+            return +a.statistics.likeCount > +b.statistics.likeCount ? a : b;
         });
     }
 
@@ -43,7 +58,7 @@ export class YoutubeService {
      * Faz uma busca na API para buscar todos os vídeos do canal
      * @returns {any}
      */
-    getYoutubeChannelData(): Promise<any> {
+    private getYoutubeChannelData(): Promise<any> {
 
         let params = {
             key: this.key,
@@ -67,7 +82,7 @@ export class YoutubeService {
      * @param listVideos
      * @returns {any}
      */
-    getYoutubeVideoData(listVideos): Promise<any> {
+    private getYoutubeVideoData(listVideos): Promise<any> {
 
         let params = {
             key: this.key,
