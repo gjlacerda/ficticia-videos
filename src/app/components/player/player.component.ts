@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, Inject} from '@angular/core';
+import {Component, OnChanges, Input, Inject} from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
@@ -6,9 +6,11 @@ import {DomSanitizer} from '@angular/platform-browser';
     templateUrl: './player.component.html',
     styleUrls: ['./player.component.less']
 })
-export class PlayerComponent implements OnInit {
+export class PlayerComponent implements OnChanges {
 
     @Input() video;
+
+    urlVideo;
 
     constructor(
         @Inject('youtube') private youtube,
@@ -21,20 +23,17 @@ export class PlayerComponent implements OnInit {
      * @returns {any|string}
      */
     getEmbedUrl() {
-
-        // Essa url é fake. Isto foi necesário para não causar erro de URL insegura do angular enquanto não carrega o vídeo principal
-        let tempUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.youtube.getEmbedUrl(''));
-
-        let videoId = this.video.id && this.video.id.videoId;
-
-        if (videoId) {
-            tempUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.youtube.getEmbedUrl(videoId));
-        }
-
-        return tempUrl;
+        return this.sanitizer.bypassSecurityTrustResourceUrl(this.youtube.getEmbedUrl(this.video.id.videoId));
     }
 
-    ngOnInit() {
+    ngOnChanges(changes) {
+        
+        if (changes.video.firstChange) {
+            return;
+        }
+
+        this.urlVideo = this.getEmbedUrl();
+
     }
 
 }
