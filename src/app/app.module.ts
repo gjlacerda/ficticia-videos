@@ -12,6 +12,7 @@ import {VideosComponent } from './components/videos/videos.component';
 import {YoutubeService} from "./services/youtube/youtube.service";
 import {FicticiaService} from "./services/ficticia/ficticia.service";
 import { VideoModalComponent } from './components/video-modal/video-modal.component';
+import { VideoSearchComponent } from './components/video-search/video-search.component';
 
 @NgModule({
     declarations: [
@@ -20,7 +21,8 @@ import { VideoModalComponent } from './components/video-modal/video-modal.compon
         PlayerComponent,
         HomeComponent,
         VideosComponent,
-        VideoModalComponent
+        VideoModalComponent,
+        VideoSearchComponent
     ],
     imports: [
         BrowserModule,
@@ -38,7 +40,11 @@ import { VideoModalComponent } from './components/video-modal/video-modal.compon
             {
                 path: 'videos',
                 component: VideosComponent
-            }
+            },
+            {
+                path: 'videos/search/:term',
+                component: VideoSearchComponent
+            },
         ])
     ],
     providers: [

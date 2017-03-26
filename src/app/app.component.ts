@@ -1,4 +1,5 @@
 import {Component, Inject} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-root',
@@ -6,11 +7,11 @@ import {Component, Inject} from '@angular/core';
 })
 export class AppComponent {
 
-    $searchInput   = null;
-    dropdownActive = false;
-    searchActive   = false;
+    private $searchInput   = null;
+    private dropdownActive = false;
+    private searchActive   = false;
 
-    constructor(@Inject('youtube') private youtube) {
+    constructor(@Inject('youtube') private youtube, private router: Router) {
         this.youtube.get();
     }
 
@@ -54,6 +55,17 @@ export class AppComponent {
                 this.$searchInput.focus();
             });
         }
+    }
+
+    /**
+     * Faz a busca de acordo com o termo
+     */
+    submitSearch(term) {
+
+        // Fecha o campo de busca
+        this.toggleSearch();
+
+        this.router.navigate(['/videos/search', term]);
     }
 
 }

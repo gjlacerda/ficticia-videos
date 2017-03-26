@@ -40,7 +40,6 @@ export class YoutubeService {
 
             this.getYoutubeVideoData(channelData).then(channelVideo => {
                 this.videos       = this.processData(channelData, channelVideo);
-                console.log(this.videos);
                 this.starredVideo = this.getStarredVideo();
             });
         });
