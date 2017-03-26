@@ -10,4 +10,11 @@ export class AppComponent {
         this.youtube.get();
     }
 
+    /**
+     * Abre/fecha o dropdown de links
+     */
+    toggleDropdown() {
+        document.querySelector('.dropdown-nav').classList.toggle('active');
+    }
+
 }

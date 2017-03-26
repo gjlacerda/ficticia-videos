@@ -11,8 +11,14 @@
 
         <!-- Ações -->
         <div class="header-actions">
-            <div class="action-menu">
+            <div class="action-menu" (click)="toggleDropdown()">
                 <span class="line"></span>
+                <nav class="dropdown dropdown-nav">
+                    <ul>
+                        <li><a routerLink="" class="star">Destaques</a></li>
+                        <li><a routerLink="/videos" class="video">Vídeos</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
 
