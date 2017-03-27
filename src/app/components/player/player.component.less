@@ -52,8 +52,15 @@
         .views,
         .date
         {
+            position: relative;
             display: inline-block;
             height: 20px;
+            cursor: pointer;
+
+            &:hover .popover
+            {
+                display: block;
+            }
         }
 
         .views
@@ -107,6 +114,36 @@
         {
             width: 20px;
             background: url('../../../assets/images/date.png') no-repeat;
+        }
+    }
+
+    .popover
+    {
+        display: none;
+        position: absolute;
+        top: -54px;
+        background: white;
+        font-size: 15px;
+        padding: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 4px;
+        box-shadow: 0px 2px 30px fade(black, 40%);
+        color: @color-gray-secondary;
+        white-space: nowrap;
+
+        &:before
+        {
+            position: absolute;
+            content: "";
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 8px 8px 0 8px;
+            border-color: white transparent transparent transparent;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
         }
     }
 }

@@ -10,11 +10,22 @@
     <div class="title">
         <h3>{{ video.snippet?.title }}</h3>
         <div class="info-md">
-            <span class="views"></span>
-            <span class="date"></span>
+            <div class="views">
+                <div class="popover">
+                    {{ ficticia.formatNumber(video.statistics?.viewCount) }} views
+                </div>
+            </div>
+
+            <div class="date">
+                <div class="popover">
+                    {{ ficticia.formatDateBr(video.snippet?.publishedAt) }}
+                </div>
+            </div>
         </div>
     </div>
+
     <p class="description">{{ video.snippet?.description }}</p>
+
     <div class="info-xs">
         <span class="views">
             <i></i> {{ ficticia.formatNumber(video.statistics?.viewCount) }}

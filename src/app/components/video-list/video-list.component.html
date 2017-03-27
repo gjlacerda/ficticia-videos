@@ -1,23 +1,27 @@
 <div class="box">
     <ul class="video-list">
-        <li class="video" *ngFor="let video of videosPaginated" (click)="selectVideo($event, video)">
-            <div class="video-content">
-                <div class="video-thumb">
-                    <a href="">
-                        <img [src]="video.snippet.thumbnails.high.url" class="thumb">
-                    </a>
+        <div class="video-scroll">
+            <li class="video" *ngFor="let video of videosPaginated" (click)="selectVideo($event, video)">
+                <div class="video-content">
+
+                    <div class="video-thumb">
+                        <a href="">
+                            <img [src]="video.snippet.thumbnails.high.url" class="thumb">
+                        </a>
+                    </div>
+
+                    <div class="video-info">
+                        <a href="" class="title">
+                            <h3>{{ video.snippet.title }}</h3>
+                        </a>
+                        <span class="views">
+                            <i></i>
+                            {{ video.statistics.viewCount }} views
+                        </span>
+                    </div>
                 </div>
-                <div class="video-info">
-                    <a href="" class="title">
-                        <h3>{{ video.snippet.title }}</h3>
-                    </a>
-                    <span class="views">
-                    <i></i>
-                    {{ video.statistics.viewCount }} views
-                </span>
-                </div>
-            </div>
-        </li>
+            </li>
+        </div>
     </ul>
 
     <button type="button" class="video-action" (click)="paginateVideos()">

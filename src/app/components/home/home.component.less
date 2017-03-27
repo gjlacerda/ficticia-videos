@@ -10,6 +10,17 @@
     margin-bottom: 15px;
 }
 
+@media (min-width: @screen-sm)
+{
+    .home-video-list app-video-list
+    {
+        & /deep/ .video
+        {
+            flex-basis: 50%;
+        }
+    }
+}
+
 @media (min-width: @screen-md)
 {
     .home-container
@@ -19,13 +30,33 @@
 
     .home-video-featured
     {
-        flex-basis: 60%;
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        flex-basis: 65%;
         margin-right: 30px;
         margin-bottom: 0;
+
+        app-player /deep/ .player-description
+        {
+            height: 155px;
+        }
     }
+
 
     .home-video-list
     {
-        flex-basis: 40%;
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        flex-basis: 35%;
+    }
+
+    .home-video-list app-video-list
+    {
+        & /deep/ .video
+        {
+            flex-basis: 100%;
+        }
     }
 }

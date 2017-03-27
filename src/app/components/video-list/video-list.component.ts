@@ -40,7 +40,9 @@ export class VideoListComponent implements OnChanges {
     }
 
     selectVideo(event, video) {
+
         event.preventDefault();
+
         this.youtube.starredVideo = video;
     }
 
