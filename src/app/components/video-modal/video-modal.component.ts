@@ -18,7 +18,7 @@ export class VideoModalComponent implements OnInit {
     eventListenerRemovable;
 
 
-    constructor(@Inject('youtube') private youtube) {
+    constructor(@Inject('youtube') public youtube) {
         this.registerEvents();
     }
 

@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
     // Remove esse evento ao destruir o componente
     eventListenerRemovable;
 
-    constructor(@Inject('youtube') private youtube) {
+    constructor(@Inject('youtube') public youtube) {
         this.youtube.get();
         this.registerEvents();
     }

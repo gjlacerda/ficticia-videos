@@ -8,7 +8,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class VideoSearchComponent implements OnInit {
 
-    private term: string;
+    public term: string;
     public videos = [];
 
     // Flag indicando se realizou algumas pesquisa

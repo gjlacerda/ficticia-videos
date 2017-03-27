@@ -10,13 +10,13 @@ export class VideoListComponent implements OnChanges {
     @Input() videos;
     @Input() take;
 
+    videosPaginated = [];
     private page = 0;
-    private videosPaginated = [];
 
     // Flag para esconder o botão de carregar mais
     noContent = false;
 
-    constructor(@Inject('youtube') private youtube, @Inject('ficticia') private ficticia) {
+    constructor(@Inject('youtube') public youtube, @Inject('ficticia') private ficticia) {
     }
 
     /**
@@ -26,7 +26,7 @@ export class VideoListComponent implements OnChanges {
     get cssAction() {
         return {
             'disabled': this.noContent
-        }
+        };
     }
 
     ngOnChanges(changes) {
@@ -43,7 +43,7 @@ export class VideoListComponent implements OnChanges {
      */
     paginateVideos() {
 
-        let initial = this.page * +this.take,
+        const initial = this.page * +this.take,
             final = initial + +this.take,
             newVideos = this.videos.slice(initial, final);
 

@@ -14,7 +14,7 @@ export class PlayerComponent implements OnChanges {
 
     constructor(
         @Inject('youtube') private youtube,
-        @Inject('ficticia') private ficticia,
+        @Inject('ficticia') public ficticia,
         private sanitizer: DomSanitizer
     ) {}
 
