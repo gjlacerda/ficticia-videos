@@ -15,8 +15,8 @@
             <!-- Pesquisar -->
             <div class="action-search">
                 <span class="search-back" (click)="toggleSearch()"></span>
-                <form class="search-form" (ngSubmit)="submitSearch(term.value)">
-                    <input type="text" class="search-input" #term>
+                <form class="search-form" (ngSubmit)="submitSearch()">
+                    <input type="text" class="search-input" name="term" [(ngModel)]="term">
                 </form>
                 <span class="search-icon" (click)="toggleSearch()"></span>
             </div>

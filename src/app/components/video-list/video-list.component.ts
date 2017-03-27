@@ -13,7 +13,20 @@ export class VideoListComponent implements OnChanges {
     private page = 0;
     private videosPaginated = [];
 
+    // Flag para esconder o botão de carregar mais
+    noContent = false;
+
     constructor(@Inject('youtube') private youtube,) {
+    }
+
+    /**
+     * Retorna a classe css do botão de ação
+     * @returns {{disabled: boolean}}
+     */
+    get cssAction() {
+        return {
+            'disabled': this.noContent
+        }
     }
 
     ngOnChanges(changes) {
@@ -35,6 +48,7 @@ export class VideoListComponent implements OnChanges {
             newVideos = this.videos.slice(initial, final);
 
         this.videosPaginated.push(...newVideos);
+        this.noContent = !newVideos.length;
 
         this.page++;
     }

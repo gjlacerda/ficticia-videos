@@ -16,6 +16,11 @@
 {
     display: flex;
     flex-basis: 100%;
+
+    &:hover .thumb
+    {
+        transform: scale(1.1);
+    }
 }
 
 .video-content
@@ -28,18 +33,28 @@
 .video-thumb
 {
     flex-basis: 50%;
-    background-color: @color-gray-secondary;
-
-    img
-    {
-        display: block;
-        max-width: 100%;
-        margin: 0 auto;
-    }
+    background-color: #000;
 
     a
     {
         display: block;
+        position: relative;
+        padding-bottom: 75%; // Aspect ratio 4:3
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .thumb
+    {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        max-width: 100%;
+        margin: 0 auto;
+        transition: transform 0.2s ease-in-out;
     }
 }
 
@@ -81,7 +96,11 @@
 
 .video-action
 {
+    max-width: 400px;
+    display: block;
     margin-top: 16px;
+    margin-left: auto;
+    margin-right: auto;
     border: 1px solid #bbb;
     width: 100%;
     background-color: white;
@@ -92,6 +111,8 @@
     line-height: 30px;
     cursor: pointer;
     color: @color-gray-secondary;
+    transition: all 0.05s ease-out;
+    transition-property: background-color, color;
 
     &:hover
     {
@@ -100,10 +121,10 @@
         color: white;
     }
 
-    &:active
+    &.disabled
     {
-        background-color: @color-gray-tertiary;
-        border-color: @color-gray-tertiary;
+        opacity: 0.3;
+        pointer-events: none;
     }
 }
 

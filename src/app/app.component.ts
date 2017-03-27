@@ -11,6 +11,8 @@ export class AppComponent {
     private dropdownActive = false;
     private searchActive   = false;
 
+    term = '';
+
     constructor(@Inject('youtube') private youtube, private router: Router) {
     }
 
@@ -59,12 +61,14 @@ export class AppComponent {
     /**
      * Faz a busca de acordo com o termo
      */
-    submitSearch(term) {
+    submitSearch() {
 
         // Fecha o campo de busca
         this.toggleSearch();
 
-        this.router.navigate(['/videos/search', term]);
+        this.router.navigate(['/videos/search', this.term]);
+
+        this.term = '';
     }
 
 }

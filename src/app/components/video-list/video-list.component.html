@@ -1,6 +1,7 @@
 <div class="box">
-    <ul class="video-list">
-        <div class="video-scroll">
+    <div class="video-scroll">
+        <ul class="video-list">
+
             <li class="video" *ngFor="let video of videosPaginated" (click)="selectVideo($event, video)">
                 <div class="video-content">
 
@@ -21,10 +22,11 @@
                     </div>
                 </div>
             </li>
-        </div>
-    </ul>
 
-    <button type="button" class="video-action" (click)="paginateVideos()">
+        </ul>
+    </div>
+
+    <button type="button" class="video-action" (click)="paginateVideos()" [ngClass]="cssAction">
         Carregar mais vídeos...
     </button>
 </div>

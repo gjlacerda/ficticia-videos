@@ -11,7 +11,8 @@ export class VideoModalComponent implements OnInit {
 
     private readonly modalOpenClass = 'modal-opened';
 
-    $body = document.body;
+    $body         = document.body;
+    $playerIframe = null;
 
     constructor(@Inject('youtube') private youtube) {
         this.registerEvents();
@@ -21,6 +22,7 @@ export class VideoModalComponent implements OnInit {
      * Remove a classe css do modal no body para fechá-lo
      */
     closeModal() {
+        this.stopVideo();
         this.$body.classList.remove(this.modalOpenClass)
     }
 
@@ -32,9 +34,17 @@ export class VideoModalComponent implements OnInit {
     }
 
     /**
+     * Para o vídeo removendo seu src
+     */
+    private stopVideo() {
+        this.$playerIframe = this.$playerIframe || document.querySelector('.player-iframe');
+        this.$playerIframe.removeAttribute('src');
+    }
+
+    /**
      * Eventos DOM
      */
-    registerEvents() {
+    private registerEvents() {
 
         // Quando clicar no body verifica se clicou no elemento passado por Input. Se positivo, abre o modal
         this.$body.addEventListener('click', event => {

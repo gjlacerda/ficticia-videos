@@ -1,6 +1,13 @@
-.videos-modal
+@import (reference) "../../../assets/less/ficticia/base/base-variables";
+
+&:host
 {
     display: none;
+}
+
+.videos-modal
+{
+    display: flex;
     align-items: center;
     justify-content: center;
     position: fixed;
@@ -13,11 +20,14 @@
     .modal-content
     {
         position: relative;
-        padding: 50px 22px 22px;
-        width: 500px;
+        padding: 50px 10px 10px;
+        max-width: 500px;
+        width: 100%;
+        height: 100%;
         border: 1px solid #bbb;
         border-radius: 2px;
         background-color: white;
+        box-sizing: border-box;
     }
 
     .modal-close
@@ -38,5 +48,14 @@
         border: none;
         box-shadow: none;
         padding: 0;
+    }
+
+    @media (min-width: @screen-md)
+    {
+        .modal-content
+        {
+            padding: 50px 22px 22px;
+            height: auto;
+        }
     }
 }

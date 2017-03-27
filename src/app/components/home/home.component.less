@@ -39,7 +39,7 @@
 
         app-player /deep/ .player-description
         {
-            height: 155px;
+            height: 165px; // TODO: calcular via javascript
         }
     }
 
@@ -57,6 +57,13 @@
         & /deep/ .video
         {
             flex-basis: 100%;
+        }
+
+        & /deep/ .video-scroll
+        {
+            height: 517px; // TODO: calcular via javascript
+            overflow-x: hidden;
+            overflow-y: auto;
         }
     }
 }

@@ -9,12 +9,23 @@ import {ActivatedRoute} from '@angular/router';
 export class VideoSearchComponent implements OnInit {
 
     private term: string;
-    public videos: Array<any>;
+    public videos = [];
+
+    // Flag indicando se realizou algumas pesquisa
+    searchDirty = false;
 
     constructor(@Inject('youtube') private youtube, private route: ActivatedRoute) {
         this.youtube.get().then(() => {
             this.filterVideos();
         });
+    }
+
+    /**
+     * Retorna true se não encontrar nenhum resultado
+     * @returns {boolean}
+     */
+    get noContent() {
+        return this.searchDirty && !this.videos.length;
     }
 
     ngOnInit() {
@@ -24,11 +35,6 @@ export class VideoSearchComponent implements OnInit {
             this.filterVideos();
         });
 
-    }
-
-    teste() {
-        this.videos.push(...[1]);
-        console.log('teste');
     }
 
     /**
@@ -50,6 +56,8 @@ export class VideoSearchComponent implements OnInit {
 
             let title = video.snippet.title.toLowerCase(),
                 description = video.snippet.description.toLowerCase();
+
+            this.searchDirty = true;
 
             return title.indexOf(this.term) !== -1 || description.indexOf(this.term) !== -1;
         });
