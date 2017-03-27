@@ -14,6 +14,10 @@ export class VideoModalComponent implements OnInit {
     $body         = document.body;
     $playerIframe = null;
 
+    // Remove esse evento ao destruir o componente
+    eventListenerRemovable;
+
+
     constructor(@Inject('youtube') private youtube) {
         this.registerEvents();
     }
@@ -46,14 +50,23 @@ export class VideoModalComponent implements OnInit {
      */
     private registerEvents() {
 
+        this.eventListenerRemovable = evt => this.shouldOpenModal(evt);
+
         // Quando clicar no body verifica se clicou no elemento passado por Input. Se positivo, abre o modal
-        this.$body.addEventListener('click', event => {
-            if (event.target['className'] === this.toggle) {
-                this.openModal();
-            }
-        });
+        this.$body.addEventListener('click', this.eventListenerRemovable);
     }
 
+    private shouldOpenModal(event) {
+
+        if (event.target['className'] === this.toggle) {
+            this.openModal();
+        }
+    }
+
+    ngOnDestroy() {
+        this.$body.removeEventListener('click', this.eventListenerRemovable);
+    }
+    
     ngOnInit() {
 
     }

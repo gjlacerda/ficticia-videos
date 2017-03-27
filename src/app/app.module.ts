@@ -42,6 +42,10 @@ import { VideoSearchComponent } from './components/video-search/video-search.com
                 component: VideosComponent
             },
             {
+                path: 'videos/search',
+                component: VideoSearchComponent
+            },
+            {
                 path: 'videos/search/:term',
                 component: VideoSearchComponent
             },

@@ -31,8 +31,17 @@ export class VideoSearchComponent implements OnInit {
     ngOnInit() {
 
         this.route.params.subscribe(params => {
+
             this.term = params['term'];
-            this.filterVideos();
+
+            // Foi necessário limpar a variável e fazer uma nova pesquisa dentro de um timeout cada vez que tentar navegar para a mesma rota alterando apenas
+            // o final da URL. Este é um bug do Router do angular 4.0
+            // https://github.com/angular/angular/issues/9811
+            this.videos = [];
+
+            setTimeout(() => {
+                this.filterVideos();
+            });
         });
 
     }

@@ -6,7 +6,8 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class YoutubeService {
 
-    private readonly maxResults = 40;
+    // O máximo de itens que a API me permite é 50
+    private readonly maxResults = 50;
     private readonly key = 'AIzaSyDjnyFJaetyEUUGb-66vndx12oj3mw_60s';
     private readonly channelId = 'UCsn6cjffsvyOZCZxvGoJxGg';
     private readonly youtubeApiSearch = 'https://www.googleapis.com/youtube/v3/search';
@@ -29,6 +30,7 @@ export class YoutubeService {
 
     /**
      * Busca os dados/vídeos do canal
+     * É necessário fazer duas requisições para obter todos os dados necessários
      */
     get() {
 

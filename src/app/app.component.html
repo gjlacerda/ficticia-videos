@@ -15,10 +15,11 @@
             <!-- Pesquisar -->
             <div class="action-search">
                 <span class="search-back" (click)="toggleSearch()"></span>
+                <span class="search-icon" (click)="toggleSearch()"></span>
+                <span class="search-icon submit" (click)="submitSearch()"></span>
                 <form class="search-form" (ngSubmit)="submitSearch()">
                     <input type="text" class="search-input" name="term" [(ngModel)]="term">
                 </form>
-                <span class="search-icon" (click)="toggleSearch()"></span>
             </div>
 
             <!-- Menu -->

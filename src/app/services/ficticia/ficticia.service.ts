@@ -21,10 +21,10 @@ export class FicticiaService {
      */
     formatNumber(number) {
 
-        if (number < 1000) {
+        if (!number) {
             return;
         }
 
-        return number.toString().slice(0, -3) + 'k';
+        return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     }
 }

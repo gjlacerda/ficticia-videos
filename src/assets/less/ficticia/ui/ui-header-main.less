@@ -31,16 +31,16 @@
 
         .action-search
         {
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: space-between;
             margin-right: 15px;
             margin-top: 2px;
-            cursor: pointer;
 
             .search-input
             {
-                display: none;
+                display: block;
                 width: 100%;
                 background-color: #882e4a;
                 border: 1px solid #fff;
@@ -59,13 +59,19 @@
                 height: 16px;
                 padding: 8px;
                 background: url('../../../../assets/images/search.png') no-repeat 50%;
+                cursor: pointer;
+            }
+            
+            .search-icon.submit
+            {
+                display: none;
             }
 
             .search-back
             {
                 position: absolute;
-                top: 14px;
-                left: 18px;
+                top: 2px;
+                left: 5px;
                 display: none;
                 width: 16px;
                 height: 16px;
@@ -75,6 +81,7 @@
 
             .search-form
             {
+                display: none;
                 width: 100%;
             }
         }
@@ -175,7 +182,7 @@
                 width: 100%;
                 margin: 0;
 
-                .search-input
+                .search-form
                 {
                     display: block;
                 }
@@ -237,6 +244,53 @@
                 &.active
                 {
                     height: auto;
+                }
+            }
+        }
+
+        &.header-search
+        {
+            .header-logo
+            {
+                display: block;
+            }
+            
+            .header-actions
+            {
+                .action-search
+                {
+                    justify-content: flex-end;
+                    margin-right: 20px;
+
+                    .search-back
+                    {
+                        display: none;
+                    }
+
+                    .search-form
+                    {
+                        width: 250px;
+                    }
+
+                    .search-icon
+                    {
+                        display: block;
+                        z-index: 10;
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                    }
+
+                    .search-input
+                    {
+                        padding-left: 10px;
+                        padding-right: 30px;
+                    }
+                }
+
+                .action-menu
+                {
+                    display: block;
                 }
             }
         }

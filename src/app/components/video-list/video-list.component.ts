@@ -16,7 +16,7 @@ export class VideoListComponent implements OnChanges {
     // Flag para esconder o botão de carregar mais
     noContent = false;
 
-    constructor(@Inject('youtube') private youtube,) {
+    constructor(@Inject('youtube') private youtube, @Inject('ficticia') private ficticia) {
     }
 
     /**
@@ -48,7 +48,7 @@ export class VideoListComponent implements OnChanges {
             newVideos = this.videos.slice(initial, final);
 
         this.videosPaginated.push(...newVideos);
-        this.noContent = !newVideos.length;
+        this.noContent = !newVideos.length || newVideos.length < this.take;
 
         this.page++;
     }
