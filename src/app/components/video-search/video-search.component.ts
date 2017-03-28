@@ -32,7 +32,7 @@ export class VideoSearchComponent implements OnInit {
 
         this.route.params.subscribe(params => {
 
-            this.term = params['term'];
+            this.term = params['term'].toLowerCase();
 
             // Foi necessário limpar a variável e fazer uma nova pesquisa dentro de um timeout cada vez que tentar navegar para a mesma rota alterando apenas
             // o final da URL. Este é um bug do Router do angular 4.0

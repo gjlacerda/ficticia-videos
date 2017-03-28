@@ -40,6 +40,15 @@ export class AppComponent {
     }
 
     /**
+     * Fecha o dropdown ao clicar no Main caso esteja aberto
+     */
+    closeDropdown() {
+        if (this.dropdownActive) {
+            this.dropdownActive = false
+        }
+    }
+
+    /**
      * Mostra esconde a barra de pesquisa
      */
     toggleSearch() {
@@ -70,5 +79,4 @@ export class AppComponent {
 
         this.term = '';
     }
-
 }
