@@ -49,7 +49,9 @@ import { VideoSearchComponent } from './components/video-search/video-search.com
                 path: 'videos/search/:term',
                 component: VideoSearchComponent
             },
-        ])
+        ], {
+          useHash: true
+        })
     ],
     providers: [
         {

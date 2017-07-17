@@ -843,7 +843,9 @@ AppModule = __decorate([
                     path: 'videos/search/:term',
                     component: __WEBPACK_IMPORTED_MODULE_13__components_video_search_video_search_component__["a" /* VideoSearchComponent */]
                 },
-            ])
+            ], {
+                useHash: true
+            })
         ],
         providers: [
             {
